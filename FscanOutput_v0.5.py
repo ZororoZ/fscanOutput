@@ -12,6 +12,7 @@ from openpyxl.styles import Font
 
 
 def OpenFile():
+
     filename = getInput()
     datalist = []
     datastr = ''
@@ -183,6 +184,18 @@ def getInput():
 
 if __name__ == "__main__":
 
+    print(r'''
+ ______                    ____        _               _   
+|  ____|                  / __ \      | |             | |  
+| |__ ___  ___ __ _ _ __ | |  | |_   _| |_ _ __  _   _| |_ 
+|  __/ __|/ __/ _` | '_ \| |  | | | | | __| '_ \| | | | __|
+| |  \__ \ (_| (_| | | | | |__| | |_| | |_| |_) | |_| | |_ 
+|_|  |___/\___\__,_|_| |_|\____/ \__,_|\__| .__/ \__,_|\__|
+                                          | |              
+                                          |_|             
+============================================================
+                                               ---By zoro123
+           ''')
     list1, str1 = OpenFile()
 
     wb = openpyxl.Workbook()
@@ -197,4 +210,7 @@ if __name__ == "__main__":
     wb.save(f"fscanResult_{time.strftime('%Y-%m-%d_%H-%M-%S', time.localtime())}.xlsx")
 
     print('结果已经整理输出至当前目录！')
+
+
+
 

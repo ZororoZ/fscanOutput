@@ -69,7 +69,7 @@ def Oslist(datalist):
 
     OutPut('OsList', sheetList)
 
-#输出漏洞列表
+#输出exp漏洞列表
 def Bug_ExpList(datalist):
 
     sheetList = [['ip', 'bug_exp']]
@@ -141,7 +141,6 @@ def GetPassword(datalist):
 
         if len(p) != 0:
             p1 = list(p)
-            print(p1)
 
             passwd = p1[0][0]
             server = p1[0][1]

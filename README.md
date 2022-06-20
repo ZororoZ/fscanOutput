@@ -16,7 +16,7 @@
 
 ## 使用方法
 
-1、python3 fscanOutput_v0.5.py result.txt
+1、python3 fscanOutput.py result.txt
 
 2、输出结果为xlsx格式的文件，比较清楚的整理了fscan的各类型输出结果：
 

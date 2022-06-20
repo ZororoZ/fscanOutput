@@ -18,6 +18,9 @@
 
 1、python3 fscanOutput.py result.txt
 
+![图片](https://user-images.githubusercontent.com/46238787/174651780-484454d7-25e6-4fc2-a3db-ac0fbd07a6af.png)
+
+
 2、输出结果为xlsx格式的文件，比较清楚的整理了fscan的各类型输出结果：
 
 ![图片](https://user-images.githubusercontent.com/46238787/160351612-00308a30-2241-4924-988c-8b9f063f9d76.png)

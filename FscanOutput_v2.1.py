@@ -222,7 +222,7 @@ def GetPassword(datalist):
     sheetList = [['ip', 'server', 'user&passwd']]
 
     for i in datalist:
-        p = re.findall(r'((ftp|mysql|mssql|SMB|RDP|Postgres|SSH|Mongodb|oracle|redis|Memcached)(:|\s).*)', i, re.I)
+        p = re.findall(r'(^(ftp|mysql|mssql|SMB|RDP|Postgres|SSH|Mongodb|oracle|redis|Memcached)(:|\s).*)', i, re.I)
 
         if len(p) != 0:
             p1 = list(p)

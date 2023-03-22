@@ -212,6 +212,8 @@ def GetTitle(datalist):
                 url.append(code[0])
                 url.append(str(len1).strip("['").strip("']'"))
                 url.append(str(title).strip("['").strip("']'"))
+                # print(url)
+                # exit()
                 sheetList.append(url)
 
     OutPut('Title', sheetList)
@@ -222,7 +224,8 @@ def GetPassword(datalist):
     sheetList = [['ip', 'server', 'user&passwd']]
 
     for i in datalist:
-        p = re.findall(r'((ftp|mysql|mssql|SMB|RDP|Postgres|SSH|Mongodb|oracle|redis|Memcached)(:|\s).*)', i, re.I)
+        p = re.findall(r'((ftp|mysql|mssql|SMB|RDP|Postgres|SSH|Mongodb|oracle|Memcached)(:|\s).*)', i, re.I)
+        rd = re.findall(r'((redis)(:|\s).*)', i, re.I)
 
         if len(p) != 0:
             p1 = list(p)
@@ -231,6 +234,18 @@ def GetPassword(datalist):
             passwd = all[3]
             server = all[0]
             ip = re.findall(r"\d+\.\d+\.\d+\.\d+", str(all))
+            ip.append(server)
+            ip.append(passwd)
+            sheetList.append(ip)
+
+
+        if len(rd) != 0:
+            rd1 = list(rd)
+
+            rd_all = rd1[0][0].split(" ")
+            passwd = rd_all[1]
+            server = rd1[0][1]
+            ip = re.findall(r"\d+\.\d+\.\d+\.\d+\:\d+", rd1[0][0])
             ip.append(server)
             ip.append(passwd)
             sheetList.append(ip)

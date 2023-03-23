@@ -17,7 +17,6 @@ from chardet.universaldetector import UniversalDetector
 
 
 
-# 获取文件编码类型
 def get_encoding(file):
     # 二进制方式读取，获取字节数据，检测类型
     with open(file, 'rb') as f:
@@ -25,16 +24,23 @@ def get_encoding(file):
         return chardet.detect(data)['encoding']
 
 
+#获取文件编码格式
+# def get_encode_info(file):
+#     with open(file, 'rb') as f:
+#         detector = UniversalDetector()
+#         for line in f.readlines():
+#             detector.feed(line)
+#             if detector.done:
+#                 break
+#         detector.close()
+#         return detector.result['encoding']
 
 def get_encode_info(file):
     with open(file, 'rb') as f:
-        detector = UniversalDetector()
-        for line in f.readlines():
-            detector.feed(line)
-            if detector.done:
-                break
-        detector.close()
-        return detector.result['encoding']
+        data = f.read()
+        result = chardet.detect(data)
+        return result['encoding']
+
 
 
 def read_file(file):
@@ -224,14 +230,19 @@ def GetPassword(datalist):
     sheetList = [['ip', 'server', 'user&passwd']]
 
     for i in datalist:
-        p = re.findall(r'((ftp|mysql|mssql|SMB|RDP|Postgres|SSH|Mongodb|oracle|Memcached)(:|\s).*)', i, re.I)
-        rd = re.findall(r'((redis)(:|\s).*)', i, re.I)
+        p = re.findall(r'((ftp|mysql|mssql|SMB|RDP|Postgres|SSH|oracle|SMB2-shares)(:|\s).*)', i, re.I)
+        rd = re.findall(r'((redis|Mongodb)(:|\s).*)', i, re.I)
+        mc = re.findall(r"((Memcached)(:|\s).*)", i, re.I)
 
         if len(p) != 0:
             p1 = list(p)
 
             all = p1[0][0].split(":")
-            passwd = all[3]
+            try:
+                passwd = all[3]
+            except:
+                passwd = []
+                pass
             server = all[0]
             ip = re.findall(r"\d+\.\d+\.\d+\.\d+", str(all))
             ip.append(server)
@@ -245,7 +256,18 @@ def GetPassword(datalist):
             rd_all = rd1[0][0].split(" ")
             passwd = rd_all[1]
             server = rd1[0][1]
-            ip = re.findall(r"\d+\.\d+\.\d+\.\d+\:\d+", rd1[0][0])
+            ip = re.findall(r"\d+\.\d+\.\d+\.\d+", rd1[0][0])
+            ip.append(server)
+            ip.append(passwd)
+            sheetList.append(ip)
+
+        if len(mc) != 0:
+            mc1 = list(mc)
+
+            mc_all = mc1[0][0].split(" ")
+            passwd = mc_all[2]
+            server = mc_all[0]
+            ip = re.findall(r"\d+\.\d+\.\d+\.\d+", mc1[0][0])
             ip.append(server)
             ip.append(passwd)
             sheetList.append(ip)

@@ -190,7 +190,7 @@ def Bug_PocList(datalist):
         if len(p) != 0:
             p1 = list(p)
             for u in p1:
-                url = re.findall(r"http[^\s].*\s", u)
+                url = re.findall(r"(?P<url>https?://\S+)", u)
                 bug = u.replace(url[0], '').replace("[+]", "").replace('\t', '').strip()
                 url.append(bug)
                 sheetList.append(url)

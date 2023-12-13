@@ -220,7 +220,7 @@ def GetPassword(datalist):
         rd = re.findall(r'((redis|Mongodb)(:|\s).*)', i, re.I)
         mc = re.findall(r"((Memcached)(:|\s).*)", i, re.I)
 
-        if len(p) != 0:
+        if len(p) != 0 and p[0][-1] == ":":
             p1 = list(p)
 
             all = p1[0][0].split(":")

@@ -4,16 +4,6 @@
 
 `python3 fscanOutput.py result.txt`
 
-## 关于更新V2.3版本
-
-1、新增txt格式的处理结果，为`无 Excel 环境(Linux/Unix等)`以及其他特殊情况提供便利；
-
-2、修复一些Bug。
-
-`将各个模块数据整理后分别保存到对应名称的txt文本文件中，更加便于查看：`
-![image](https://github.com/ZororoZ/fscanOutput/assets/46238787/9054a343-164a-4e97-aff8-f466428ae8a1)
-
-
 ## 关于更新V2.2版本
 
 1、优化弱口令模块，新增对应开放端口号，剔除多余显示的redis可写目录。

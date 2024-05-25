@@ -10,9 +10,9 @@
 
 2、新增NetInfo信息提取模块，包含NetBIOS信息；
 
-2、新增各个模块txt格式输出，方便无Office环境、Linux命令行类型环境查看；
+3、新增各个模块txt格式输出，方便无Office环境、Linux命令行类型环境查看；
 
-2、修复了一些BUG!
+4、修复了一些BUG!
 
 ![image](https://github.com/ZororoZ/fscanOutput/assets/46238787/d5a3b48e-4816-49ef-bc64-1605859c6d34)
 

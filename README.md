@@ -4,6 +4,10 @@
 
 `python3 fscanOutput.py result.txt`
 
+## 关于更新V2.3.1版本
+
+1、优化密码提取规则，兼容新版本fscan！！！
+
 ## 关于更新V2.3版本
 
 1、对各个模块进行优化，兼容了新版本的fscan；

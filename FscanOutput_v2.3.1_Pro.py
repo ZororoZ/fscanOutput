@@ -284,7 +284,10 @@ def GetPassword(datalist):
             rd_all2 = rd2[0][0].split(" ")
             passwd = rd_all2[2]
             server = rd_all2[0]
-            port = (rd_all2[1].split(":"))[1]
+            try:
+                port = (rd_all2[1].split(":"))[1]
+            except IndexError:
+                continue
             ip = re.findall(r"\d+\.\d+\.\d+\.\d+", rd2[0][0])
             ip.append(port)
             ip.append(server)

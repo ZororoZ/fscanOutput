@@ -4,6 +4,15 @@
 
 `python3 fscanOutput.py result.txt`
 
+## 关于更新V3.0版本
+
+1、优化netbios和netinfo的提取规则，将其分别提取至不同的sheetList中，避免漏匹配的问题。
+
+2、将所有的txt结果整理至目标处理文件命名文件下，避免杂乱。
+
+![image](https://github.com/user-attachments/assets/70d46a70-f4ec-4276-8abc-41410bd49542)
+
+
 ## 关于更新V2.3.1版本
 
 1、优化密码提取规则，兼容新版本fscan！！！
